@@ -8,6 +8,16 @@ public class StartupAnalyser : ICreditLineAnalyser
 {
     public CreditLineResult Analyse(CreditLineRequest request)
     {
-        throw new NotImplementedException();
+        if (GetRecomendedCreditLine(request) > request.RequestedCreditLine)
+        {
+            return new CreditLineResult { Success = true };
+        }
+
+        return new CreditLineResult(new[] { "Credit line requested is too high" });
+    }
+
+    private decimal GetRecomendedCreditLine(CreditLineRequest request)
+    {
+        return Math.Max(request.CashBalance / 3M, request.MonthlyRevenue / 5M);
     }
 }

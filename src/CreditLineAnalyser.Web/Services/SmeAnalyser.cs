@@ -8,7 +8,7 @@ public class SmeAnalyser : ICreditLineAnalyser
 {
     public CreditLineResult Analyse(CreditLineRequest request)
     {
-        var recomendedCredit = request.MonthlyRevenue * 0.2M;
+        var recomendedCredit = request.MonthlyRevenue / 5M;
 
         if (recomendedCredit > request.RequestedCreditLine)
         {
