@@ -4,11 +4,11 @@ public class CreditLineRequest
 {
     public string FoundingType { get; set; }
 
-    public double CashBalance { get; set; }
+    public decimal CashBalance { get; set; }
 
-    public double MonthlyRevenue { get; set; }
+    public decimal MonthlyRevenue { get; set; }
 
-    public int RequestedCreditLine { get; set; }
+    public decimal RequestedCreditLine { get; set; }
 
     public DateTime RequestedDate { get; set; }
 }

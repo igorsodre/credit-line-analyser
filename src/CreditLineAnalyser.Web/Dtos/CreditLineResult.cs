@@ -2,7 +2,14 @@ namespace CreditLineAnalyser.Web.Dtos;
 
 public class CreditLineResult
 {
-    public bool Success { get; set; }
+    public bool Success { get; set; } = false;
 
-    public string[] ErrorMessages { get; set; }
+    public CreditLineResult() { }
+
+    public CreditLineResult(string[] errorMessages)
+    {
+        ErrorMessages = errorMessages;
+    }
+
+    public string[] ErrorMessages { get; set; } = Array.Empty<string>();
 }
