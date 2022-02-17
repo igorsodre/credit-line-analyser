@@ -12,4 +12,6 @@ public class CreditLineResult
     }
 
     public string[] ErrorMessages { get; set; } = Array.Empty<string>();
+
+    public string SuccessMessage { get; set; }
 }

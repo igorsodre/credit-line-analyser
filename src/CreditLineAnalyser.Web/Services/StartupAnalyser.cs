@@ -10,7 +10,11 @@ public class StartupAnalyser : ICreditLineAnalyser
     {
         if (GetRecomendedCreditLine(request) > request.RequestedCreditLine)
         {
-            return new CreditLineResult { Success = true };
+            return new CreditLineResult
+            {
+                Success = true,
+                SuccessMessage = "Credit Line Accepted"
+            };
         }
 
         return new CreditLineResult(new[] { "Credit line requested is too high" });
