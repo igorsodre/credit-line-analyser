@@ -1,14 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text.Json;
-using System.Threading.Tasks;
-using CreditLineAnalyser.Web.Constants;
 using CreditLineAnalyser.Web.Contracts.Requests;
 using CreditLineAnalyser.Web.Contracts.Responses;
-using CreditLineAnalyser.Web.Dtos;
 using CreditLineAnalyser.Web.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CreditLineAnalyser.Web.Controllers
