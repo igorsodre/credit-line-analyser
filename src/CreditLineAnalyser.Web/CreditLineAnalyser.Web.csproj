@@ -9,6 +9,7 @@
     <ItemGroup>
         <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.2" />
         <PackageReference Include="Scrutor" Version="4.0.0" />
+        <PackageReference Include="StackExchange.Redis" Version="2.2.88" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
     </ItemGroup>
 
