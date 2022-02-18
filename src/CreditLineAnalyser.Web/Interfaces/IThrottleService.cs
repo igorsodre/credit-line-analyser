@@ -4,7 +4,7 @@ namespace CreditLineAnalyser.Web.Interfaces;
 
 public interface IThrottleService
 {
-    Task Set(string key, string value);
+    Task StoreResponse(CreditLineResult result);
 
-    Task<CacheItem> Get(string key);
+    Task<ThrottleResult> GetResponse();
 }

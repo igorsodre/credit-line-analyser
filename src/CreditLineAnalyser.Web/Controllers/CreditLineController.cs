@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
+using CreditLineAnalyser.Web.Constants;
 using CreditLineAnalyser.Web.Contracts.Requests;
 using CreditLineAnalyser.Web.Contracts.Responses;
 using CreditLineAnalyser.Web.Dtos;
@@ -16,16 +18,19 @@ namespace CreditLineAnalyser.Web.Controllers
     public class CreditLineController : ControllerBase
     {
         private readonly ICreditLineProcessor _processor;
+        private readonly IThrottleService _throttleService;
 
-        public CreditLineController(ICreditLineProcessor processor)
+        public CreditLineController(ICreditLineProcessor processor, IThrottleService throttleService)
         {
             _processor = processor;
+            _throttleService = throttleService;
         }
 
         [HttpPost("")]
-        public ActionResult PlaceCreditLine(CreditLineRequest request)
+        public async Task<ActionResult> PlaceCreditLine(CreditLineRequest request)
         {
             var result = _processor.ProcessRequest(request);
+            await _throttleService.StoreResponse(result);
 
             if (!result.Success)
             {
